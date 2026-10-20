@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Corne v4.1 Keymap</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #fff; font-family: 'Segoe UI', system-ui, sans-serif; padding: 40px; }
+  h1 { text-align: center; font-size: 28px; margin-bottom: 40px; color: #e0e0e0; letter-spacing: 2px; }
+  .layer { margin-bottom: 50px; }
+  .layer-title { font-size: 20px; font-weight: 600; margin-bottom: 16px; }
+  .layer-title span { font-weight: 400; color: #888; font-size: 14px; margin-left: 8px; }
+
+  .keyboard { display: inline-block; }
+  .row { display: flex; gap: 4px; margin-bottom: 4px; }
+  .half { display: flex; gap: 4px; }
+  .gap { width: 24px; }
+  .key {
+    width: 58px; height: 48px;
+    border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 500;
+    border: 1px solid rgba(255,255,255,0.1);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+  }
+  .key.thumb { height: 52px; width: 68px; border-radius: 8px; }
+  .thumb-row { margin-top: 8px; }
+
+  /* Row 2 (no inner keys): pad left half right, right half left to align with rows above */
+  .row2 .half-left { padding-right: 0; }
+  .row2 .half-right { padding-left: 0; }
+  /* The inner key column (62px key + 4px gap = 62px per side) needs to be accounted for */
+  .spacer-inner { width: 58px; }
+
+  /* Color classes */
+  .c-letter { background: #c62828; }
+  .c-num    { background: #1565c0; }
+  .c-fn     { background: #2e7d32; }
+  .c-mod    { background: #37474f; }
+  .c-inner  { background: #6a1b9a; }
+  .c-layer  { background: #e65100; }
+  .c-uni    { background: #00838f; }
+  .c-dead   { background: #ad1457; }
+
+  .legend { display: flex; gap: 20px; justify-content: center; margin-bottom: 40px; flex-wrap: wrap; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 13px; color: #aaa; }
+  .legend-swatch { width: 16px; height: 16px; border-radius: 3px; }
+
+  @media print {
+    body { background: #fff; color: #000; }
+    .layer-title { color: #000; }
+    .layer-title span { color: #666; }
+    .key { border: 1px solid #ccc; color: #fff; }
+  }
+</style>
+</head>
+<body>
+
+<h1>CORNE v4.1 KEYMAP</h1>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-swatch c-letter"></div>Letters</div>
+  <div class="legend-item"><div class="legend-swatch c-num"></div>Numbers/Symbols</div>
+  <div class="legend-item"><div class="legend-swatch c-fn"></div>Function/Nav</div>
+  <div class="legend-item"><div class="legend-swatch c-mod"></div>Modifiers</div>
+  <div class="legend-item"><div class="legend-swatch c-inner"></div>Inner Keys</div>
+  <div class="legend-item"><div class="legend-swatch c-layer"></div>Layer Switch</div>
+  <div class="legend-item"><div class="legend-swatch c-uni"></div>Unicode</div>
+  <div class="legend-item"><div class="legend-swatch c-dead"></div>Dead Keys</div>
+</div>
+
+<!-- LAYER 0 -->
+<div class="layer">
+  <div class="layer-title" style="color:#ef5350;">Layer 0 — Base QWERTY <span>default layer</span></div>
+  <div class="keyboard">
+    <!-- Row 0: 7 + gap + 7 -->
+    <div class="row">
+      <div class="half">
+        <div class="key c-mod">Tab</div>
+        <div class="key c-letter">Q</div>
+        <div class="key c-letter">W</div>
+        <div class="key c-letter">E</div>
+        <div class="key c-letter">R</div>
+        <div class="key c-letter">T</div>
+        <div class="key c-inner">(</div>
+      </div>
+      <div class="gap"></div>
+      <div class="half">
+        <div class="key c-inner">)</div>
+        <div class="key c-letter">Y</div>
+        <div class="key c-letter">U</div>
+        <div class="key c-letter">I</div>
+        <div class="key c-letter">O</div>
+        <div class="key c-letter">P</div>
+        <div class="key c-mod">Esc</div>
+      </div>
+    </div>
+    <!-- Row 1: 7 + gap + 7 -->
+    <div class="row">
+      <div class="half">
+        <div class="key c-mod">Alt</div>
+        <div class="key c-letter">A</div>
+        <div class="key c-letter">S</div>
+        <div class="key c-letter">D</div>
+        <div class="key c-letter">F</div>
+        <div class="key c-letter">G</div>
+        <div class="key c-inner">,</div>
+      </div>
+      <div class="gap"></div>
+      <div class="half">
+        <div class="key c-inner">.</div>
+        <div class="key c-letter">H</div>
+        <div class="key c-letter">J</div>
+        <div class="key c-letter">K</div>
+        <div class="key c-letter">L</div>
+        <div class="key c-uni">Å</div>
+        <div class="key c-mod">Win</div>
+      </div>
+    </div>
+    <!-- Row 2: 6 + spacer + gap + spacer + 6 (aligned with rows above) -->
+    <div class="row row2">
+      <div class="half">
+        <div class="key c-mod">Ctrl</div>
+        <div class="key c-letter">Z</div>
+        <div class="key c-letter">X</div>
+        <div class="key c-letter">C</div>
+        <div class="key c-letter">V</div>
+        <div class="key c-letter">B</div>
+      </div>
+      <div class="spacer-inner"></div>
+      <div class="gap"></div>
+      <div class="spacer-inner"></div>
+      <div class="half">
+        <div class="key c-letter">N</div>
+        <div class="key c-letter">M</div>
+        <div class="key c-uni">Ç</div>
+        <div class="key c-uni">Æ</div>
+        <div class="key c-uni">Ø</div>
+        <div class="key c-mod">Enter</div>
+      </div>
+    </div>
+    <!-- Thumbs: centered under inner area -->
+    <div class="row thumb-row" style="justify-content: center;">
+      <div class="half">
+        <div class="key thumb c-mod">Shift</div>
+        <div class="key thumb c-layer">MO(1)</div>
+        <div class="key thumb c-mod">Space</div>
+      </div>
+      <div class="gap"></div>
+      <div class="half">
+        <div class="key thumb c-mod">Bspc</div>
+        <div class="key thumb c-layer">MO(2)</div>
+        <div class="key thumb c-mod">Del</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LAYER 1 -->
+<div class="layer">
+  <div class="layer-title" style="color:#42a5f5;">Layer 1 — Numbers / Symbols <span>hold MO(1)</span></div>
+  <div class="keyboard">
+    <div class="row">
+      <div class="half">
+        <div class="key c-mod">Tab</div>
+        <div class="key c-num">1</div>
+        <div class="key c-num">2</div>
+        <div class="key c-num">3</div>
+        <div class="key c-num">4</div>
+        <div class="key c-num">5</div>
+        <div class="key c-inner">[</div>
+      </div>
+      <div class="gap"></div>
+      <div class="half">
+        <div class="key c-inner">]</div>
+        <div class="key c-num">6</div>
+        <div class="key c-num">7</div>
+        <div class="key c-num">8</div>
+        <div class="key c-num">9</div>
+        <div class="key c-num">0</div>
+        <div class="key c-mod">Esc</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="half">
+        <div class="key c-mod">Alt</div>
+        <div class="key c-num">!</div>
+        <div class="key c-num">@</div>
+        <div class="key c-num">#</div>
+        <div class="key c-num">$</div>
+        <div class="key c-num">%</div>
+        <div class="key c-inner">-</div>
+      </div>
+      <div class="gap"></div>
+      <div class="half">
+        <div class="key c-inner">+</div>
+        <div class="key c-num">|</div>
+        <div class="key c-num">&amp;</div>
+        <div class="key c-num">*</div>
+        <div class="key c-num">'</div>
+        <div class="key c-num">"</div>
+        <div class="key c-mod">Win</div>
+      </div>
+    </div>
+    <div class="row row2">
+      <div class="half">
+        <div class="key c-mod">Ctrl</div>
+        <div class="key c-num">?</div>
+        <div class="key c-num">:</div>
+        <div class="key c-num">;</div>
+        <div class="key c-uni">&euro;</div>
+        <div class="key c-num">_</div>
+      </div>
+      <div class="spacer-inner"></div>
+      <div class="gap"></div>
+      <div class="spacer-inner"></div>
+      <div class="half">
+        <div class="key c-num">=</div>
+        <div class="key c-num">&lt;</div>
+        <div class="key c-num">&gt;</div>
+        <div class="key c-num">/</div>
+        <div class="key c-num">\</div>
+        <div class="key c-mod">Enter</div>
+      </div>
+    </div>
+    <div class="row thumb-row" style="justify-content: center;">
+      <div class="half">
+        <div class="key thumb c-mod">Shift</div>
+        <div class="key thumb c-layer">MO(1)</div>
+        <div class="key thumb c-mod">Space</div>
+      </div>
+      <div class="gap"></div>
+      <div class="half">
+        <div class="key thumb c-mod">Bspc</div>
+        <div class="key thumb c-layer">MO(2)</div>
+        <div class="key thumb c-mod">Del</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LAYER 2 -->
+<div class="layer">
+  <div class="layer-title" style="color:#66bb6a;">Layer 2 — Function / Nav / Dead Keys <span>hold MO(2)</span></div>
+  <div class="keyboard">
+    <div class="row">
+      <div class="half">
+        <div class="key c-mod">Tab</div>
+        <div class="key c-fn">F1</div>
+        <div class="key c-fn">F2</div>
+        <div class="key c-fn">F3</div>
+        <div class="key c-fn">F4</div>
+        <div class="key c-fn">F5</div>
+        <div class="key c-inner">{</div>
+      </div>
+      <div class="gap"></div>
+      <div class="half">
+        <div class="key c-inner">}</div>
+        <div class="key c-fn">F6</div>
+        <div class="key c-fn">F7</div>
+        <div class="key c-fn">F8</div>
+        <div class="key c-fn">F9</div>
+        <div class="key c-fn">F10</div>
+        <div class="key c-mod">Esc</div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="half">
+        <div class="key c-mod">Alt</div>
+        <div class="key c-fn">Caps</div>
+        <div class="key c-fn">&larr;</div>
+        <div class="key c-fn">&uarr;</div>
+        <div class="key c-fn">&rarr;</div>
+        <div class="key c-dead">~</div>
+        <div class="key c-uni">&pi;</div>
+      </div>
+      <div class="gap"></div>
+      <div class="half">
+        <div class="key c-uni">&deg;</div>
+        <div class="key c-dead">^</div>
+        <div class="key c-fn">Home</div>
+        <div class="key c-fn">PgUp</div>
+        <div class="key c-fn">End</div>
+        <div class="key c-fn">F11</div>
+        <div class="key c-mod">Win</div>
+      </div>
+    </div>
+    <div class="row row2">
+      <div class="half">
+        <div class="key c-mod">Ctrl</div>
+        <div class="key c-fn">Brk</div>
+        <div class="key c-fn">PScr</div>
+        <div class="key c-fn">&darr;</div>
+        <div class="key c-dead">&uml;</div>
+        <div class="key c-dead">&macr;</div>
+      </div>
+      <div class="spacer-inner"></div>
+      <div class="gap"></div>
+      <div class="spacer-inner"></div>
+      <div class="half">
+        <div class="key c-dead">`</div>
+        <div class="key c-dead">&acute;</div>
+        <div class="key c-fn">PgDn</div>
+        <div class="key c-fn">Ins</div>
+        <div class="key c-fn">F12</div>
+        <div class="key c-mod">Enter</div>
+      </div>
+    </div>
+    <div class="row thumb-row" style="justify-content: center;">
+      <div class="half">
+        <div class="key thumb c-mod">Shift</div>
+        <div class="key thumb c-layer">MO(1)</div>
+        <div class="key thumb c-mod">Space</div>
+      </div>
+      <div class="gap"></div>
+      <div class="half">
+        <div class="key thumb c-mod">Bspc</div>
+        <div class="key thumb c-layer">MO(2)</div>
+        <div class="key thumb c-mod">Del</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
